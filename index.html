@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>THE HAVEN — Premium Properties For Sale</title>
+  <meta name="description" content="THE HAVEN offers premium houses, bungalows, and flats for sale. Discover your perfect home with our curated luxury property listings." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ─── NAVIGATION ─── -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo" id="logo-link">
+        <span class="logo-icon">◈</span>
+        <span class="logo-text">THE <span class="logo-accent">HAVEN</span></span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#properties" class="nav-link">Properties</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <a href="#contact" class="btn btn-outline nav-cta" id="nav-cta-btn">List Your Property</a>
+      <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <section class="hero" id="home">
+    <div class="hero-bg" id="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow" id="hero-eyebrow">Premium Real Estate</p>
+      <h1 class="hero-title" id="hero-title">Find Your Perfect <span class="hero-accent">Dream Home</span></h1>
+      <p class="hero-subtitle" id="hero-subtitle">Discover exclusive houses, bungalows & flats curated for those who demand the finest in life.</p>
+      <div class="hero-actions" id="hero-actions">
+        <a href="#properties" class="btn btn-primary" id="hero-explore-btn">Explore Properties</a>
+        <a href="#contact" class="btn btn-ghost" id="hero-contact-btn">Talk to an Agent</a>
+      </div>
+      <div class="hero-stats" id="hero-stats">
+        <div class="stat">
+          <span class="stat-number" data-target="2400">0</span><span class="stat-suffix">+</span>
+          <span class="stat-label">Properties Sold</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number" data-target="98">0</span><span class="stat-suffix">%</span>
+          <span class="stat-label">Client Satisfaction</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number" data-target="15">0</span><span class="stat-suffix">+</span>
+          <span class="stat-label">Years Experience</span>
+        </div>
+      </div>
+    </div>
+    <a href="#properties" class="hero-scroll" id="hero-scroll-btn" aria-label="Scroll down">
+      <span class="scroll-line"></span>
+      <span class="scroll-dot"></span>
+    </a>
+  </section>
+
+  <!-- ─── SEARCH / FILTER ─── -->
+  <section class="search-section" id="search-section">
+    <div class="search-card" id="search-card">
+      <div class="search-tabs" id="search-tabs">
+        <button class="search-tab active" data-filter="all" id="filter-all">All Properties</button>
+        <button class="search-tab" data-filter="house" id="filter-house">Houses</button>
+        <button class="search-tab" data-filter="bungalow" id="filter-bungalow">Bungalows</button>
+        <button class="search-tab" data-filter="flat" id="filter-flat">Flats</button>
+      </div>
+      <div class="search-fields" id="search-fields">
+        <div class="search-field" id="location-field">
+          <label for="location-input">Location</label>
+          <input type="text" id="location-input" placeholder="City, neighbourhood…" />
+        </div>
+        <div class="search-field" id="price-field">
+          <label for="price-select">Max Price</label>
+          <select id="price-select">
+            <option value="">Any Price</option>
+            <option value="500000">Up to ₹50 Lakh</option>
+            <option value="1000000">Up to ₹1 Crore</option>
+            <option value="2500000">Up to ₹2.5 Crore</option>
+            <option value="5000000">Up to ₹5 Crore</option>
+            <option value="10000000">Up to ₹10 Crore</option>
+          </select>
+        </div>
+        <div class="search-field" id="beds-field">
+          <label for="beds-select">Bedrooms</label>
+          <select id="beds-select">
+            <option value="">Any</option>
+            <option value="1">1+</option>
+            <option value="2">2+</option>
+            <option value="3">3+</option>
+            <option value="4">4+</option>
+          </select>
+        </div>
+        <button class="btn btn-primary search-btn" id="search-btn">Search</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROPERTIES GRID ─── -->
+  <section class="properties-section" id="properties">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Our Listings</p>
+        <h2 class="section-title">Featured Properties</h2>
+        <p class="section-sub">Hand-picked premium properties across the most sought-after locations</p>
+      </div>
+      <div class="properties-grid" id="properties-grid">
+        <!-- Cards injected by JS -->
+      </div>
+      <div class="load-more-wrap" id="load-more-wrap">
+        <button class="btn btn-outline load-more-btn" id="load-more-btn">Load More Properties</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── WHY CHOOSE US ─── -->
+  <section class="features-section" id="about">
+    <div class="container">
+      <div class="features-inner">
+        <div class="features-text">
+          <p class="section-eyebrow">Why THE HAVEN</p>
+          <h2 class="section-title">Your Trusted Partner in <span class="accent-text">Premium Real Estate</span></h2>
+          <p class="features-desc">With over 15 years of curating premium properties, THE HAVEN delivers an unmatched buying experience — from first search to final signature.</p>
+          <ul class="features-list" id="features-list">
+            <li><span class="check">✦</span> Expert agents with deep local market knowledge</li>
+            <li><span class="check">✦</span> Virtual tours & 3D walkthroughs available</li>
+            <li><span class="check">✦</span> End-to-end legal & financial support</li>
+            <li><span class="check">✦</span> Transparent pricing — no hidden costs</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary" id="about-cta-btn">Get Free Consultation</a>
+        </div>
+        <div class="features-cards" id="features-cards">
+          <div class="feature-card glass" id="feat-card-1">
+            <div class="feat-icon">🏡</div>
+            <h3>Houses</h3>
+            <p>Spacious family homes with gardens, private driveways, and premium finishes</p>
+          </div>
+          <div class="feature-card glass" id="feat-card-2">
+            <div class="feat-icon">🌿</div>
+            <h3>Bungalows</h3>
+            <p>Single-storey elegance with lush landscaping in tranquil neighbourhoods</p>
+          </div>
+          <div class="feature-card glass" id="feat-card-3">
+            <div class="feat-icon">🏙️</div>
+            <h3>Flats</h3>
+            <p>Modern urban apartments with breathtaking city views and concierge services</p>
+          </div>
+          <div class="feature-card glass" id="feat-card-4">
+            <div class="feat-icon">⭐</div>
+            <h3>Luxury</h3>
+            <p>Ultra-premium penthouses and estates for the most discerning buyers</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TESTIMONIALS ─── -->
+  <section class="testimonials-section" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Client Stories</p>
+        <h2 class="section-title">What our buyers say</h2>
+      </div>
+      <div class="testimonials-track" id="testimonials-track">
+        <div class="testimonial-card" id="testi-1">
+          <div class="stars">★★★★★</div>
+          <p>"THE HAVEN found us our dream bungalow in under two weeks. The process was completely transparent and stress-free. Highly recommend!"</p>
+          <div class="testi-author">
+            <div class="author-avatar" style="background: linear-gradient(135deg, #c9a96e, #e8c98a)">A</div>
+            <div><strong>Aarav Sharma</strong><span>Purchased Bungalow, Pune</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card" id="testi-2">
+          <div class="stars">★★★★★</div>
+          <p>"We were amazed by the quality of listings and how responsive the team was. Our penthouse flat exceeded every expectation!"</p>
+          <div class="testi-author">
+            <div class="author-avatar" style="background: linear-gradient(135deg, #6e93c9, #8ab0e8)">P</div>
+            <div><strong>Priya Menon</strong><span>Purchased Flat, Mumbai</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card" id="testi-3">
+          <div class="stars">★★★★★</div>
+          <p>"Sold my house in 10 days at asking price! The team's market knowledge and network are truly exceptional."</p>
+          <div class="testi-author">
+            <div class="author-avatar" style="background: linear-gradient(135deg, #c96e8a, #e88aaa)">R</div>
+            <div><strong>Rohan Kapoor</strong><span>Sold House, Bengaluru</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card" id="testi-4">
+          <div class="stars">★★★★★</div>
+          <p>"The virtual walkthrough technology saved us months of searching. We bought our house remotely with total confidence."</p>
+          <div class="testi-author">
+            <div class="author-avatar" style="background: linear-gradient(135deg, #6ec98a, #8ae8aa)">S</div>
+            <div><strong>Sunita & Dev Batra</strong><span>Purchased House, Delhi</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CONTACT ─── -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="contact-inner">
+        <div class="contact-info">
+          <p class="section-eyebrow">Get In Touch</p>
+          <h2 class="section-title">Ready to find your <span class="accent-text">perfect home?</span></h2>
+          <p class="contact-desc">Our team of expert agents is ready to guide you through every step — from shortlisting to signing.</p>
+          <div class="contact-details" id="contact-details">
+            <div class="contact-item">
+              <span class="contact-icon">📍</span>
+              <span>12 Prestige Tower, MG Road, Bengaluru 560001</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">📞</span>
+              <span>+91 98765 43210</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">✉️</span>
+              <span>hello@havenrealty.in</span>
+            </div>
+          </div>
+        </div>
+        <form class="contact-form glass" id="contact-form" novalidate>
+          <h3 class="form-title">Send us a message</h3>
+          <div class="form-row">
+            <div class="form-group" id="name-group">
+              <label for="name-input">Full Name</label>
+              <input type="text" id="name-input" placeholder="Your name" required />
+            </div>
+            <div class="form-group" id="email-group">
+              <label for="email-input">Email Address</label>
+              <input type="email" id="email-input" placeholder="you@email.com" required />
+            </div>
+          </div>
+          <div class="form-group" id="phone-group">
+            <label for="phone-input">Phone Number</label>
+            <input type="tel" id="phone-input" placeholder="+91 XXXXX XXXXX" />
+          </div>
+          <div class="form-group" id="interest-group">
+            <label for="interest-select">Interested In</label>
+            <select id="interest-select">
+              <option value="">Select property type</option>
+              <option value="house">House</option>
+              <option value="bungalow">Bungalow</option>
+              <option value="flat">Flat</option>
+              <option value="sell">Sell My Property</option>
+            </select>
+          </div>
+          <div class="form-group" id="message-group">
+            <label for="message-input">Message</label>
+            <textarea id="message-input" rows="4" placeholder="Tell us about your requirements…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary submit-btn" id="submit-btn">Send Message</button>
+          <div class="form-success" id="form-success">
+            <span>✓</span> Thank you! We'll be in touch within 24 hours.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-icon">◈</span>
+          <span class="logo-text">THE <span class="logo-accent">HAVEN</span></span>
+          <p class="footer-tagline">Crafting extraordinary living experiences since 2009.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Properties</h4>
+          <ul>
+            <li><a href="#" id="foot-houses">Houses</a></li>
+            <li><a href="#" id="foot-bungalows">Bungalows</a></li>
+            <li><a href="#" id="foot-flats">Flats</a></li>
+            <li><a href="#" id="foot-luxury">Luxury Estates</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#about" id="foot-about">About Us</a></li>
+            <li><a href="#" id="foot-agents">Our Agents</a></li>
+            <li><a href="#" id="foot-careers">Careers</a></li>
+            <li><a href="#contact" id="foot-contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-newsletter">
+          <h4>Stay Updated</h4>
+          <p>Get the latest luxury listings delivered to your inbox.</p>
+          <div class="newsletter-form" id="newsletter-form">
+            <input type="email" id="newsletter-email" placeholder="Your email address" />
+            <button class="btn btn-primary" id="newsletter-btn">Subscribe</button>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 THE HAVEN. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#" id="foot-privacy">Privacy Policy</a>
+          <a href="#" id="foot-terms">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ─── PROPERTY MODAL ─── -->
+  <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-label="Property details">
+    <div class="modal" id="property-modal">
+      <button class="modal-close" id="modal-close-btn" aria-label="Close modal">✕</button>
+      <div class="modal-image-wrap">
+        <img id="modal-img" src="" alt="" />
+        <span class="modal-badge" id="modal-badge"></span>
+      </div>
+      <div class="modal-body">
+        <div class="modal-header">
+          <div>
+            <h2 id="modal-title"></h2>
+            <p id="modal-location" class="modal-location"></p>
+          </div>
+          <p class="modal-price" id="modal-price"></p>
+        </div>
+        <div class="modal-specs" id="modal-specs"></div>
+        <p class="modal-desc" id="modal-desc"></p>
+        <div class="modal-features" id="modal-features"></div>
+        <div class="modal-actions">
+          <a href="#contact" class="btn btn-primary" id="modal-enquire-btn">Enquire Now</a>
+          <button class="btn btn-outline" id="modal-tour-btn">Book a Tour</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── TOAST ─── -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -13,7 +13,7 @@ const PROPERTIES = [
     price: '₹8.5 Cr',
     priceNum: 8500000,
     beds: 5, baths: 4, area: '4,200',
-    image: 'images/house_1.png',
+    image: 'house_1.png',
     description: 'An architectural masterpiece perched with sweeping ocean views. This contemporary home features soaring ceilings, chef-grade kitchen, home theatre, and a spectacular infinity pool overlooking the sea.',
     features: ['Infinity Pool', 'Home Theatre', "Chef's Kitchen", 'Smart Home', 'Private Gym', '4-Car Garage'],
     tag: 'Featured',

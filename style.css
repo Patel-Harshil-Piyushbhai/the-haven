@@ -307,7 +307,7 @@ button {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url('images/hero_bg.png');
+  background-image: url('hero_bg.png');
   background-size: cover;
   background-position: center;
   transform: scale(1.05);

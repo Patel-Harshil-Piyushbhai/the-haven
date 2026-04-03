@@ -369,7 +369,7 @@ function initModal() {
 
 // ══════════════════════════════════════════════
 const EMAILJS_CONFIG = {
-  publicKey:   'aBcDeFgHiJkLmN',
+  publicKey:   'Kq924KK3lHanPgVQn',
       serviceId:   'service_xxxxxxx',
       templateId:  'template_xxxxxxx',
     };

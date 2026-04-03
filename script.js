@@ -368,119 +368,17 @@ function initModal() {
 }
 
 // ══════════════════════════════════════════════
-// CONTACT FORM
-// ══════════════════════════════════════════════
+const EMAILJS_CONFIG = {
+  publicKey:   'aBcDeFgHiJkLmN',
+      serviceId:   'service_xxxxxxx',
+      templateId:  'template_xxxxxxx',
+    };
+
 function initContactForm() {
-  $('contact-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const btn = $('submit-btn');
-    const success = $('form-success');
+    const form = $('contact-form');
+    if(!form) return;
 
-    btn.textContent = 'Sending…';
-    btn.disabled = true;
+  const btn = form.querySelector('button[type="submit"]');
 
-    setTimeout(() => {
-      btn.textContent = 'Send Message';
-      btn.disabled = false;
-      $('contact-form').reset();
-      success.classList.add('show');
-      showToast('✓ Message sent! We\'ll be in touch soon.');
-      setTimeout(() => success.classList.remove('show'), 5000);
-    }, 1500);
-  });
-}
-
-// ══════════════════════════════════════════════
-// NEWSLETTER
-// ══════════════════════════════════════════════
-function initNewsletter() {
-  $('newsletter-btn').addEventListener('click', () => {
-    const val = $('newsletter-email').value.trim();
-    if (!val || !val.includes('@')) {
-      showToast('⚠️ Please enter a valid email address.');
-      return;
-    }
-    $('newsletter-email').value = '';
-    showToast('🎉 Subscribed! Welcome to Haven Realty.');
-  });
-}
-
-// ══════════════════════════════════════════════
-// TOAST
-// ══════════════════════════════════════════════
-let toastTimer;
-function showToast(msg) {
-  const toast = $('toast');
-  toast.textContent = msg;
-  toast.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => toast.classList.remove('show'), 3500);
-}
-
-// ══════════════════════════════════════════════
-// SCROLL REVEAL
-// ══════════════════════════════════════════════
-function initScrollReveal() {
-  const revealTargets = qsa('.feature-card, .testimonial-card, .contact-item, .feature-card');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.style.animation = 'fadeUp 0.6s ease forwards';
-        io.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
-  revealTargets.forEach((el) => {
-    el.style.opacity = '0';
-    io.observe(el);
-  });
-}
-
-// ══════════════════════════════════════════════
-// FOOTER QUICK-FILTER LINKS
-// ══════════════════════════════════════════════
-function initFooterLinks() {
-  const filters = { 'foot-houses': 'house', 'foot-bungalows': 'bungalow', 'foot-flats': 'flat' };
-  Object.entries(filters).forEach(([id, type]) => {
-    const el = $(id);
-    if (el) {
-      el.addEventListener('click', (e) => {
+  form.addEventListener('submit', (e) => {
         e.preventDefault();
-        activeFilter = type;
-        qsa('.search-tab').forEach((t) => {
-          t.classList.toggle('active', t.dataset.filter === type);
-        });
-        applySearch();
-        $('properties').scrollIntoView({ behavior: 'smooth' });
-      });
-    }
-  });
-}
-
-// ══════════════════════════════════════════════
-// INIT
-// ══════════════════════════════════════════════
-document.addEventListener('DOMContentLoaded', () => {
-  initNavbar();
-  initHero();
-  initSearch();
-  renderCards();
-  initModal();
-  initContactForm();
-  initNewsletter();
-  initScrollReveal();
-  initFooterLinks();
-
-  // Lazy-load observer for property cards
-  const cardObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        cardObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-
-  // Re-observe after render
-  qsa('.property-card').forEach((card) => cardObserver.observe(card));
-});

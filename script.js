@@ -371,7 +371,7 @@ function initModal() {
 const EMAILJS_CONFIG = {
   publicKey:   'Kq924KK3lHanPgVQn',
           serviceId:   'service_r3waw83',
-    templateId:  'template_x6vxkja',
+    templateId:  'template_ta40dlq',
           };
 
 function initContactForm() {

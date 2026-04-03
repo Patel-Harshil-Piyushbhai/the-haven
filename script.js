@@ -370,9 +370,9 @@ function initModal() {
 // ══════════════════════════════════════════════
 const EMAILJS_CONFIG = {
   publicKey:   'Kq924KK3lHanPgVQn',
-      serviceId:   'service_xxxxxxx',
-      templateId:  'template_xxxxxxx',
-    };
+          serviceId:   'service_r3waw83',
+    templateId:  'template_x6vxkja',
+          };
 
 function initContactForm() {
     const form = $('contact-form');
